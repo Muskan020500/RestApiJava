@@ -40,4 +40,26 @@ public class courseServiceImpl implements courseService{
         list_of_courses.add(c);
         return c;
     }
+
+    @Override
+    public course updateCourse(course c) {
+        for (course c1:list_of_courses){
+            if(c.getId() == c1.getId()){
+              int i =  list_of_courses.indexOf(c1);
+              list_of_courses.set(i,c);break;
+            }
+        }
+        return c;
+    }
+
+    @Override
+    public course deleteCourse(course c) {
+        for (course c1 :list_of_courses){
+            if(c.getId()== c1.getId()){
+                int i =  list_of_courses.indexOf(c1);
+                list_of_courses.remove(i);break;
+            }
+        }
+        return c;
+    }
 }

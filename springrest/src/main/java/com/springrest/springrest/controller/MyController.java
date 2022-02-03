@@ -30,4 +30,12 @@ public class MyController {
     public course addCourse(@RequestBody course c){
         return this.service.addCourse(c);
     }
+    @PutMapping("/courses")
+    public course updateCourse(@RequestBody course c){
+        return this.service.updateCourse(c);
+    }
+    @DeleteMapping("/courses")
+    public course deleteCourse(@RequestBody course c){
+        return this.service.deleteCourse(c);
+    }
 }
