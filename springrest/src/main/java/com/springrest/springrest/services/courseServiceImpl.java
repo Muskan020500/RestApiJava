@@ -1,10 +1,14 @@
 package com.springrest.springrest.services;
 
 import com.springrest.springrest.entities.course;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class courseServiceImpl implements courseService{
 
@@ -61,5 +65,11 @@ public class courseServiceImpl implements courseService{
             }
         }
         return c;
+    }
+
+    @Override
+    public void deletecourse(long id) {
+        list_of_courses = this.list_of_courses.stream()
+                .filter(e ->e.getId()!=id).collect(Collectors.toList());
     }
 }
